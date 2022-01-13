@@ -69,7 +69,7 @@ public class DepartmentFormController implements Initializable{
 			entity = getFormData();
 			service.saveOrUpdate(entity);
 			notifyDataChangeListeners();
-			Utils.currenStage(event).close();
+			Utils.currentStage(event).close();
 		}
 		catch(ValidationException e) {
 			setErrorsMesseges(e.getErrors());
@@ -89,7 +89,7 @@ public class DepartmentFormController implements Initializable{
 		
 		ValidationException exception = new ValidationException("Validation Error");
 		
-		obj.setId(Utils.tryParseToInt(txtId.getId()));
+		obj.setId(Utils.tryParseToInt(txtId.getText()));
 		if(txtName.getText() == null || txtName.getText().trim().equals("")) {
 			exception.addErrors("name", "Field can't be empty");
 		}
@@ -101,7 +101,7 @@ public class DepartmentFormController implements Initializable{
 	}
 	@FXML
 	public void onBtCancelAction(ActionEvent event) {
-		Utils.currenStage(event).close();
+		Utils.currentStage(event).close();
 	}
 	
 		
